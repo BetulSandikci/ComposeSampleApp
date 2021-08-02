@@ -4,6 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -17,36 +21,31 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Row(
+            Column(
                 modifier = Modifier
-                    .width(300.dp)
-                    .fillMaxHeight(0.7f)
-                    .background(Color.Yellow),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceAround
+                    .background(Color.Yellow)
+                    .fillMaxHeight(0.5f)
+                    .fillMaxWidth()
+                    .padding(top = 60.dp)
+                    .border(5.dp, Color.Magenta)
+                    .padding(5.dp)
+                    .border(5.dp, Color.Blue)
+                    .padding(5.dp)
+                    .border(10.dp, Color.Red)
+                    .padding(10.dp)
+
+                //.requiredWidth(300.dp)
+
             ) {
-                Text("Hello")
+                Text(
+                    "Hello", modifier = Modifier
+                        .border(5.dp, Color.Cyan)
+                        .padding(15.dp)
+                )
+                Spacer(modifier = Modifier.height(50.dp))
                 Text("World")
-                Text("Hello")
             }
 
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    Row(
-        modifier = Modifier
-            .width(300.dp)
-            .fillMaxHeight(0.7f)
-            .background(Color.Yellow),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceAround
-    ) {
-        Text("Hello")
-        Text("World")
-        Text("Hello")
     }
 }
